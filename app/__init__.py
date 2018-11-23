@@ -3,7 +3,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CsrfProtect
-from ..config import config
+from config import config
 from flask_login import LoginManager
 from flask_mail import Mail
 
@@ -24,4 +24,6 @@ def create_app(config_name):
 
 	db.init_app(app)
 
+	from .main import main as main_blueprint
+	app.register_blueprint(main_blueprint)
 	return app
