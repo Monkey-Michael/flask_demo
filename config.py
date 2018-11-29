@@ -13,6 +13,7 @@ class Config(object):
 
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 
+
     # Email
     MAIL_SERVER = os.environ.get('MAIL_SERVER') or 'smtp.sendgrid.net'
     MAIL_PORT = os.environ.get('MAIL_PORT') or 587
@@ -33,6 +34,8 @@ class Config(object):
     # REDIS
     REDIS_URL = os.getenv('REDISTOGO_URL') or 'http://localhost:6379'
 
+    #TEMPLATE
+    templates_folder = os.path.abspath(os.path.join(basedir,'templates'))
 
 class DevelopmentConfig(Config):
     DEBUG = True
